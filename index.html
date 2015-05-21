@@ -1,0 +1,89 @@
+<html>
+<head>
+  <title>pinch component</title>
+  <meta name="viewport" content="width=device-width, initial-scale=0.5, maximum-scale=0.5, user-scalable=no" />
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
+
+    h2 {
+      position: absolute;
+      color: #ccc;
+      top: 0;
+      left: 10px;
+      z-index: 1000;
+    }
+
+    #container {
+      height: 100%;
+      width: 100%;
+      overflow: auto;
+      position: relative;
+    }
+
+    #log {
+      top: 0;
+      right: 0;
+      height: 50px;
+      width: 150px;
+      text-align: right;
+      position: absolute;
+    }
+
+    #img {
+      position: relative;
+      -webkit-user-select: none;
+    }
+
+    @media only screen
+    and (max-width : 640px) {
+      #img {
+        background: no-repeat url('http://preview.quanjing.com/glow_foto001/gcr375359930.jpg') center center;
+      }
+    }
+
+    .dot {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-radius: 5px;
+      background: yellow;
+      top: 0;
+      right: 0;
+    }
+  </style>
+</head>
+<body>
+  <h2>place two fingers onto the image</h2>
+  <div id="container">
+	  <div id="img"><img src="http://preview.quanjing.com/glow_foto001/gcr375359930.jpg"></div>
+    <div class="dot"></div>
+    <div id="test">0</div>
+  </div>
+  <script src="./lib/pinch.js" type="text/javascript"></script>
+  <script type="text/javascript">
+
+    var img = document.querySelector('#img');
+    var dot = document.querySelector('.dot');
+      var sc=1;
+    var p=new Pinch(img, function(e) {
+      //alert('fn');
+      dot.style.left = e.x + 'px';
+      dot.style.top = e.y + 'px';
+      //sc=sc*Math.floor(e.scale);
+      if(e.scale<1)e.scale=1;
+      //alert(e.scale);
+      img.style['-webkit-transform'] = 'scale(' + e.scale + ')';
+    });
+
+    function log(str) {
+      document.getElementById('text').innerText = str;
+    }
+
+  </script>
+</body>
+</html>
+

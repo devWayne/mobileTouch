@@ -1,0 +1,23 @@
+I{
+  "name": "mobileTouch",
+  "version": "1.0.0",
+  "description": "touch mobile",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/devWayne/mobileTouch.git"
+  },
+  "keywords": [
+    "touch",
+    "mobile"
+  ],
+  "author": "Vi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/devWayne/mobileTouch/issues"
+  },
+  "homepage": "https://github.com/devWayne/mobileTouch"
+}
